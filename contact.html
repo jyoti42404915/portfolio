@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <meta name="description" content="Personal Portfolio Website of Jyoti">
+
+    <meta name="keywords" content="Portfolio, HTML, CSS, Student">
+
+    <meta name="author" content="Jyoti">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>My Portfolio</h1>
+
+    <button id="theme-btn" onclick="toggleTheme()">
+        🌙 Dark Mode
+    </button>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+
+<section>
+
+<h2>Contact Form</h2>
+
+<form>
+
+<label for="name">Name:</label><br>
+<input type="text" id="name" required aria-label="Enter your name">
+
+<label for="email">Email:</label><br>
+<input type="email" id="email" required aria-label="Enter your email">
+
+<label for="message">Message:</label><br>
+<textarea id="message" rows="5" cols="30" required aria-label="Enter your message"></textarea>
+
+<button type="submit">Send</button>
+
+</form>
+
+</section>
+
+</main>
+
+<footer>
+<p>© 2025 My Portfolio</p>
+</footer>
+
+<script>
+// Page load hote hi saved theme apply karo
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark-mode");
+}
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark-mode");
+
+    const btn = document.getElementById("theme-btn");
+
+    if(document.body.classList.contains("dark-mode")){
+        localStorage.setItem("theme","dark");
+        btn.innerHTML="☀️ Light Mode";
+    }else{
+        localStorage.setItem("theme","light");
+        btn.innerHTML="🌙 Dark Mode";
+    }
+}
+
+// Button text page load par set karo
+window.onload=function(){
+
+    const btn=document.getElementById("theme-btn");
+
+    if(document.body.classList.contains("dark-mode")){
+        btn.innerHTML="☀️ Light Mode";
+    }else{
+        btn.innerHTML="🌙 Dark Mode";
+    }
+
+}
+</script>
+
+</body>
+</html>
